@@ -1,0 +1,8 @@
+.btn-main {
+  border-radius: 100%;
+  mix-blend-mode: luminosity;
+  &:hover {
+    mix-blend-mode: normal;
+    background-color: azure;
+  }
+}
