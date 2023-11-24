@@ -1,14 +1,14 @@
-import { MantineThemeComponents, MantineThemeOverride } from '@mantine/core';
+import { MantineTheme, MantineThemeComponents, Button as MantineButton } from '@mantine/core';
 
-function Button(theme: MantineThemeOverride): MantineThemeComponents {
+function Button(theme: MantineTheme): MantineThemeComponents {
   return {
-    Button: {
+    Button: MantineButton.extend({
       defaultProps: {
         size: 'lg',
         variant: 'filled',
-        color: theme?.colors?.dark,
+        color: theme.primaryColor,
       },
-    },
+    }),
   };
 }
 

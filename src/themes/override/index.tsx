@@ -1,10 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { MantineThemeOverride } from '@mantine/core';
+import { DEFAULT_THEME, MantineTheme } from '@mantine/core';
 import Button from './Button';
 
-function ComponentOverride(theme: MantineThemeOverride) {
+function ComponentOverride(theme: MantineTheme) {
   return {
+    ...DEFAULT_THEME.components,
     ...Button(theme),
   };
 }

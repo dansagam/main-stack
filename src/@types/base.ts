@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Control, FieldErrorsImpl, FieldValues, Path, RegisterOptions } from 'react-hook-form';
 
