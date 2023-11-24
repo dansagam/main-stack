@@ -1,4 +1,4 @@
-import { MantineTheme, MantineThemeComponents, Button as MantineButton } from '@mantine/core';
+import { MantineTheme, MantineThemeComponents, Button as MantineButton, rem } from '@mantine/core';
 
 function Button(theme: MantineTheme): MantineThemeComponents {
   return {
@@ -6,7 +6,10 @@ function Button(theme: MantineTheme): MantineThemeComponents {
       defaultProps: {
         size: 'lg',
         variant: 'filled',
-        color: theme.primaryColor,
+        color: theme.colors.dark[8],
+        style: {
+          borderRadius: rem(100),
+        },
       },
     }),
   };
