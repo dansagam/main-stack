@@ -6,6 +6,8 @@ export type IChildren = {
   children: React.ReactNode;
 };
 
+export type BaseSvgType = React.FunctionComponent<React.ComponentProps<'svg'> & { title?: string }>;
+
 export type Prettify<T> = {
   [K in keyof T]: T[K];
   // eslint-disable-next-line @typescript-eslint/ban-types
