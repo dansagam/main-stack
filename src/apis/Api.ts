@@ -2,7 +2,7 @@ import axios, { InternalAxiosRequestConfig } from 'axios';
 // import Auth from './Auth';
 
 const Api = axios.create({
-  baseURL: import.meta.env.VITE_HRMS_BASE_URL || '',
+  baseURL: import.meta.env.VITE_BASE_URL || '',
 });
 
 Api.interceptors.request.use(
