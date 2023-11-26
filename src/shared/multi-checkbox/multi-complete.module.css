@@ -1,0 +1,12 @@
+.pill-input-input {
+  min-height: rem(45);
+  background-color: #eff1f6;
+  border-radius: rem(12);
+  &[data-app-active='true'] {
+    background-color: transparent;
+  }
+}
+
+.pill-span {
+  background-color: var(--mantine-color-white);
+}

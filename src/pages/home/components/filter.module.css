@@ -1,0 +1,13 @@
+.drawer-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  border-radius: rem(20);
+}
+
+.content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border-radius: rem(20);
+  margin: rem(5) rem(10);
+}
