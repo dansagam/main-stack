@@ -1,6 +1,6 @@
 .pill-input-input {
   min-height: rem(45);
-  background-color: #eff1f6;
+  background-color: var(--mantine-color-gray-1);
   border-radius: rem(12);
   &[data-app-active='true'] {
     background-color: transparent;
@@ -9,4 +9,17 @@
 
 .pill-span {
   background-color: var(--mantine-color-white);
+}
+
+.combobox-dropdown {
+  border-radius: rem(12);
+  background: var(--mantine-color-white, #fff);
+  box-shadow:
+    0px 6px 12px 0px rgba(92, 115, 131, 0.08),
+    0px 4px 8px 0px rgba(92, 115, 131, 0.08);
+  padding: rem(8);
+}
+
+.combobox-option {
+  padding: rem(14);
 }

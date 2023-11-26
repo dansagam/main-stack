@@ -26,7 +26,10 @@ function ControlledMultiCompleteInput<TFieldValues extends FieldValues>(
       name={name}
       control={control}
       rules={rules}
-      render={() => <MultiCompleteInput options={options} {...rest} />}
+      // eslint-disable-next-line no-unused-vars
+      render={({ field: { ref, onChange, value } }) => (
+        <MultiCompleteInput value={value} onChange={onChange} options={options} {...rest} />
+      )}
     />
   );
 }

@@ -15,7 +15,7 @@
 
 .text-input-input {
   padding: rem(14) rem(5);
-  background-color: var(--mantine-color-gray-2);
+  background-color: var(--mantine-color-gray-1);
   min-height: 45px;
   border-radius: rem(12);
   &[data-app-active='true'] {

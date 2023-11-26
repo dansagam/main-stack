@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, Grid } from '@mantine/core';
+import { Box, Button, ButtonProps, Drawer, Grid } from '@mantine/core';
 import React from 'react';
 import classes from './drawer.module.css';
 import { IChildren, Prettify } from '@/@types/base';
@@ -10,11 +10,28 @@ type Props = Prettify<
     title?: string;
     actionText?: string;
     secActionText?: string;
+    onSecAction?: () => void;
+    isSecCancel?: boolean;
+    ActionButtonProps?: ButtonProps;
+    SecActionButtonProps?: ButtonProps;
   } & IChildren
 >;
 
 function AppDrawer(props: Props) {
-  const { onAction, onClose, open, children, title, ...rest } = props;
+  const {
+    onAction,
+    onClose,
+    open,
+    children,
+    title,
+    actionText,
+    secActionText,
+    isSecCancel = true,
+    onSecAction,
+    ActionButtonProps,
+    SecActionButtonProps,
+    ...rest
+  } = props;
   return (
     <Drawer
       opened={open}
@@ -28,11 +45,26 @@ function AppDrawer(props: Props) {
       <Box style={{ flex: 1 }}>{children}</Box>
       <Grid gutter={10}>
         <Grid.Col span={6}>
-          <Button fullWidth>Apply</Button>
+          <Button
+            color="white"
+            variant="outline"
+            style={{ color: 'var(--mantine-color-black)' }}
+            fullWidth
+            onClick={() => {
+              if (onSecAction && isSecCancel) {
+                onSecAction();
+              } else {
+                onClose();
+              }
+            }}
+            {...SecActionButtonProps}
+          >
+            {secActionText}
+          </Button>
         </Grid.Col>
         <Grid.Col span={6}>
-          <Button fullWidth onClick={onAction}>
-            Apply
+          <Button fullWidth onClick={onAction} {...ActionButtonProps}>
+            {actionText}
           </Button>
         </Grid.Col>
       </Grid>

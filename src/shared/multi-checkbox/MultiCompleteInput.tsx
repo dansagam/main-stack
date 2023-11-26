@@ -8,15 +8,17 @@ import { BsSquare } from 'react-icons/bs';
 type MultiCompleteInputProps = Prettify<{
   options: Prettify<Pick<OptionType, 'label' | 'value'>>[];
   label?: string;
+  onChange?: (_val: string) => void;
+  value?: string;
 }>;
 function MultiCompleteInput(props: MultiCompleteInputProps) {
-  const { options, label } = props;
+  const { options, label, onChange, value } = props;
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
     onDropdownOpen: () => combobox.updateSelectedOptionIndex('active'),
   });
   const [search, setSearch] = React.useState('');
-  const [_value, setValue] = React.useState<Array<string>>([]);
+  const [_value, setValue] = React.useState<Array<string>>(value?.split(';') || []);
 
   const handleValueSelect = (val: string) =>
     setValue((current) =>
@@ -36,11 +38,21 @@ function MultiCompleteInput(props: MultiCompleteInputProps) {
       {item}
     </Pill>
   ));
+  React.useEffect(() => {
+    if (onChange) {
+      onChange(_value.join(';'));
+    }
+  }, [_value]);
 
   const _options = options
     .filter((option) => option.value.includes(search.trim().toLowerCase()))
     .map((opt) => (
-      <Combobox.Option value={opt.value} key={opt.label} active={_value.includes(opt.value)}>
+      <Combobox.Option
+        classNames={{ option: classes['combobox-option'] }}
+        value={opt.value}
+        key={opt.label}
+        active={_value.includes(opt.value)}
+      >
         <Group gap="sm">
           {_value.includes(opt.value) ? <IoIosCheckbox size={20} /> : <BsSquare size={15} />}
           <span>{opt.label}</span>
@@ -81,7 +93,7 @@ function MultiCompleteInput(props: MultiCompleteInputProps) {
           </Pill.Group>
         </PillsInput>
       </Combobox.DropdownTarget>
-      <Combobox.Dropdown>
+      <Combobox.Dropdown classNames={{ dropdown: classes['combobox-dropdown'] }}>
         <Combobox.Options>
           {_options.length > 0 ? _options : <Combobox.Empty>Nothing found...</Combobox.Empty>}
         </Combobox.Options>
