@@ -53,5 +53,6 @@ module.exports = {
     'import/export': 0,
     'import/no-unused-modules': [0, { unusedExports: true }],
     'import/no-unresolved': 0,
+    'react/no-unused-prop-types': 0,
   },
 };

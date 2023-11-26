@@ -1,0 +1,32 @@
+.drawer-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  border-radius: rem(20);
+}
+
+.content {
+  border-radius: rem(20);
+  margin: rem(5) rem(10);
+}
+
+.body {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  flex: 1;
+  height: calc(100% - 70px);
+  padding-right: rem(24);
+  padding-left: rem(24);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: rem(20) rem(24);
+  & h2 {
+    font-size: rem(24);
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 120%;
+  }
+}
