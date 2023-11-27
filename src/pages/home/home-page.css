@@ -11,7 +11,7 @@
   padding: 1rem;
 }
 .chart-app-title {
-  background-color: rgb(206, 206, 206);
+  background-color: var(--mantine-color-gray-2);
 }
 
 .chart-app-container span {
