@@ -7,9 +7,7 @@ function Button(theme: MantineTheme): MantineThemeComponents {
         size: 'lg',
         variant: 'filled',
         color: theme.colors.dark[8],
-        style: {
-          borderRadius: rem(100),
-        },
+        radius: rem(100),
       },
     }),
   };

@@ -45,22 +45,42 @@ function AppDrawer(props: Props) {
       <Box style={{ flex: 1 }}>{children}</Box>
       <Grid gutter={10}>
         <Grid.Col span={6}>
-          <Button
-            color="white"
-            variant="outline"
-            style={{ color: 'var(--mantine-color-black)' }}
-            fullWidth
-            onClick={() => {
-              if (onSecAction && isSecCancel) {
-                onSecAction();
-              } else {
-                onClose();
-              }
-            }}
-            {...SecActionButtonProps}
-          >
-            {secActionText}
-          </Button>
+          <>
+            <Button
+              color="gray"
+              // variant="outline"
+              style={{ color: 'var(--mantine-color-black)' }}
+              fullWidth
+              lightHidden
+              onClick={() => {
+                if (onSecAction && isSecCancel) {
+                  onSecAction();
+                } else {
+                  onClose();
+                }
+              }}
+              {...SecActionButtonProps}
+            >
+              {secActionText}
+            </Button>
+            <Button
+              color="white"
+              variant="outline"
+              style={{ color: 'var(--mantine-color-black)' }}
+              fullWidth
+              onClick={() => {
+                if (onSecAction && isSecCancel) {
+                  onSecAction();
+                } else {
+                  onClose();
+                }
+              }}
+              darkHidden
+              {...SecActionButtonProps}
+            >
+              {secActionText}
+            </Button>
+          </>
         </Grid.Col>
         <Grid.Col span={6}>
           <Button fullWidth onClick={onAction} {...ActionButtonProps}>

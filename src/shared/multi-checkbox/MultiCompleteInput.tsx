@@ -18,7 +18,9 @@ function MultiCompleteInput(props: MultiCompleteInputProps) {
     onDropdownOpen: () => combobox.updateSelectedOptionIndex('active'),
   });
   const [search, setSearch] = React.useState('');
-  const [_value, setValue] = React.useState<Array<string>>(value?.split(';') || []);
+  const [_value, setValue] = React.useState<Array<string>>(
+    value && value.includes(';') ? value?.split(';') : []
+  );
 
   const handleValueSelect = (val: string) =>
     setValue((current) =>
@@ -54,7 +56,11 @@ function MultiCompleteInput(props: MultiCompleteInputProps) {
         active={_value.includes(opt.value)}
       >
         <Group gap="sm">
-          {_value.includes(opt.value) ? <IoIosCheckbox size={20} /> : <BsSquare size={15} />}
+          {_value.includes(opt.value) ? (
+            <IoIosCheckbox size={20} />
+          ) : (
+            <BsSquare color="custom-gray" size={15} />
+          )}
           <span>{opt.label}</span>
         </Group>
       </Combobox.Option>

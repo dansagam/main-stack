@@ -22,6 +22,7 @@ function FilterDrawer(props: Props) {
   const {
     control,
     formState: { isValid, errors },
+    reset,
     handleSubmit,
   } = useForm({
     defaultValues: filterDefaultValue,
@@ -35,7 +36,10 @@ function FilterDrawer(props: Props) {
   return (
     <Drawer
       onAction={handleSubmit(onSubmit)}
-      onClose={onClose}
+      onClose={() => {
+        onClose();
+        reset();
+      }}
       open={open}
       title="Filter "
       actionText="Apply"

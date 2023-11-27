@@ -14,7 +14,7 @@
   width: calc(100% - rem(14px));
   flex-wrap: nowrap;
   background-color: var(--mantine-color-white);
-  z-index: 333;
+  z-index: 15;
 }
 
 .home-nav-link {
