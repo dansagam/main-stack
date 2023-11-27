@@ -6,7 +6,11 @@ import SidebarLink from './SidebarLink';
 
 function Sidebar() {
   return (
-    <Stack h="100%" justify="center">
+    <Stack
+      h="100%"
+      justify="center"
+      display={{ base: 'none', sm: 'flex', md: 'flex', lg: 'flex', xs: 'flex' }}
+    >
       <Flex direction="column" gap={16} px={8} py={6} className={classes['app-sidebar-container']}>
         {HOME_SIDEBAR_DATA.map((sidebar, idx) => (
           <SidebarLink data={sidebar} key={`${sidebar.title}-${idx}`} />
