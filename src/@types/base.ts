@@ -17,6 +17,23 @@ export type EmptyObject = {
   [K in string | number | symbol]: never;
 };
 
+export type PrimitiveType = string | number | boolean | Date | null | undefined;
+
+export type RecurviePrimitiveType =
+  | PrimitiveType
+  | RecurviePrimitiveType[]
+  | { [key: string]: RecurviePrimitiveType };
+
+export type ITableLenType = string | number | null | boolean | Date;
+
+export type RecuresiveTableType = Record<
+  string,
+  RecurviePrimitiveType | { [key: string | number]: RecuresiveTableType }
+>;
+
+// export type ITableContraint = Record<string, RecuresiveTableType>;
+export type ITableContraint = RecuresiveTableType;
+
 /**
  * contains the @param {value} for the value
  * @params {label} for the display or preview
