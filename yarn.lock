@@ -4569,6 +4569,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-csv@npm:^1.1.9":
+  version: 1.1.9
+  resolution: "@types/react-csv@npm:1.1.9"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 768411b2b960539b82221852355cfa7b3ba691ca6c7d70d49e16c11d39b53dda5ab08efca977a49a5d79812b834f661243ea30f0fcdab097447f5b3d1f7557be
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.2.14":
   version: 18.2.15
   resolution: "@types/react-dom@npm:18.2.15"
@@ -9677,6 +9686,7 @@ __metadata:
     "@testing-library/react": "npm:^14.0.0"
     "@testing-library/user-event": "npm:^14.5.1"
     "@types/react": "npm:^18.2.36"
+    "@types/react-csv": "npm:^1.1.9"
     "@types/react-dom": "npm:^18.2.14"
     "@typescript-eslint/eslint-plugin": "npm:^6.9.1"
     "@typescript-eslint/parser": "npm:^6.9.1"
@@ -9705,6 +9715,7 @@ __metadata:
     prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
     react-apexcharts: "npm:^1.4.1"
+    react-csv: "npm:^2.2.2"
     react-dom: "npm:^18.2.0"
     react-error-boundary: "npm:^4.0.11"
     react-hook-form: "npm:^7.48.2"
@@ -11180,6 +11191,13 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: 48eb73cf71e10841c2a61b6b06ab81da9fffa9876134c239bfdebcf348ce2a47e56b146338e35dfb03512c85966bfc9a53844fc56bc50154e71f8daee59ff6f0
+  languageName: node
+  linkType: hard
+
+"react-csv@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "react-csv@npm:2.2.2"
+  checksum: 287e7ba2085a32a0e65d7a19b9e063e43f06f75ab6ebc18bb52b518007a1d6ec5f5ce33fc7c4e290e3ea41cfb251657b6e62aadadc8d7ffcef7e53d43bf3eb69
   languageName: node
   linkType: hard
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Button, Flex, Grid, Stack, Text, Title, rem, useMantineTheme } from '@mantine/core';
 import { walletMock } from './mock/home.wallet';
 import { Props as ChartProps } from 'react-apexcharts';
+import { CSVLink } from 'react-csv';
 import WalletCard from './components/WalletCard';
 import { useGetWallet } from '@/hooks/queries/wallet/wallet';
 import { useGetAllTransaction } from '@/hooks/queries/transactions/transactions';
@@ -61,7 +62,7 @@ function HomePage() {
       },
     },
   });
-
+  const csvHeaders = ['Amount', 'Date', 'Reference', 'Status', 'Type'];
   return (
     <>
       <Box>
@@ -142,6 +143,15 @@ function HomePage() {
                     color="custom-gray"
                     variant="light"
                     size="compact-xl"
+                    headers={csvHeaders}
+                    data={transactions
+                      .map(
+                        (field) =>
+                          `${field.amount},${field.date},${field.payment_reference},${field.status},${field.type},`
+                      )
+                      .join('\n')}
+                    filename="Transaction"
+                    component={CSVLink}
                     rightSection={<GrDownload />}
                     style={{ color: theme.colors.dark[7], borderRadius: rem(100) }}
                   >

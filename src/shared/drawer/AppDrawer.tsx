@@ -38,6 +38,7 @@ function AppDrawer(props: Props) {
       onClose={onClose}
       classNames={{ content: classes.content, body: classes.body, header: classes.header }}
       overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
+      transitionProps={{ duration: 800, timingFunction: 'linear' }}
       position="right"
       title={title || 'd'}
       {...rest}
