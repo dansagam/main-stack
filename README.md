@@ -12,6 +12,55 @@ This template comes with the following features:
 
 ## npm scripts
 
+### to run,  you probably want to install nvm so as to use yarn^4.xx which is on Node 18
+
+follow the instructions
+
+- [nvm-download](https://github.com/nvm-sh/nvm) download the script for nvm
+
+this check the list of all stable node versions
+
+```bash
+  nvm list available
+
+```
+
+```bash
+  nvm install <you stable version you want >
+
+```
+
+```bash
+  nvm use <the version you picked>
+
+```
+
+then install the yarn for the node pack you used
+
+### use
+
+```bash
+  corepack enable
+
+```
+
+```bash
+ yarn set version stable
+
+```
+
+to check the version of the yarn version
+
+```bash
+  yarn -v 
+
+```
+
+```bash
+  yarn install 
+
+```
+
 ## Build and dev scripts
 
 - `dev` – start development server
