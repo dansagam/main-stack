@@ -8,7 +8,7 @@ import MainNav from './MainNav';
 function Header() {
   return (
     <header className={classes.header}>
-      <Group justify="space-between">
+      <Group justify="space-between" wrap="nowrap">
         <MainLogo />
         <MainNav />
         <ProfileNav />

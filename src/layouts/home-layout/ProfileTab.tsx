@@ -13,6 +13,8 @@ import {
 import React from 'react';
 import { CiMenuBurger } from 'react-icons/ci';
 import { HOME_PROFILE_TAB } from './SidebarData';
+import { useUserContext } from '@/context/UserContext';
+import { getFromFullname } from '@/helpers/getInitials';
 
 type ProfileButtonProps = Prettify<
   React.ComponentPropsWithoutRef<'button'> & {
@@ -22,7 +24,13 @@ type ProfileButtonProps = Prettify<
 const ProfileTab = React.forwardRef<HTMLButtonElement, ProfileButtonProps>(
   ({ name, ...rest }, ref) => (
     <UnstyledButton ref={ref} {...rest}>
-      <Group pl={5} pr={14} py={5} style={{ borderRadius: '100px', background: '#EFF1F6' }}>
+      <Group
+        pl={5}
+        wrap="nowrap"
+        pr={14}
+        py={5}
+        style={{ borderRadius: '100px', background: '#EFF1F6' }}
+      >
         <Avatar color="white" bg="dark">
           {name}
         </Avatar>
@@ -38,10 +46,11 @@ export default ProfileTab;
 
 export const ProfileDropdown = () => {
   const theme = useMantineTheme();
+  const { user } = useUserContext();
   return (
     <Menu position="bottom-end">
       <Menu.Target>
-        <ProfileTab name="OJ" />
+        <ProfileTab name={getFromFullname(`${user?.first_name || ''} ${user?.last_name || ''}`)} />
       </Menu.Target>
       <Menu.Dropdown
         mt={15}
@@ -53,8 +62,8 @@ export const ProfileDropdown = () => {
             OJ
           </Avatar>
           <Stack gap={3}>
-            <Title fz={16}>Oliver Jone</Title>
-            <Title fz={12}>olu@hmai.com</Title>
+            <Title fz={16}>{`${user?.first_name || ''} ${user?.last_name || ''}`}</Title>
+            <Title fz={12}>{user?.email}</Title>
           </Stack>
         </Menu.Label>
         {HOME_PROFILE_TAB.map((field, idx) => (

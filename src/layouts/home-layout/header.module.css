@@ -12,6 +12,9 @@
   left: 0;
   top: 0;
   width: calc(100% - rem(14px));
+  flex-wrap: nowrap;
+  background-color: var(--mantine-color-white);
+  z-index: 333;
 }
 
 .home-nav-link {

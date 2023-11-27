@@ -1,0 +1,19 @@
+.chart-app-container {
+  box-shadow:
+    0px 8px 16px 4px rgba(188, 196, 204, 0.1),
+    0px 12px 24px 0px rgba(219, 222, 229, 0.1),
+    0px 16px 32px 0px rgba(219, 222, 229, 0.1);
+  backdrop-filter: blur(8px);
+  display: grid;
+  gap: 0.2rem;
+}
+.chart-app-content {
+  padding: 1rem;
+}
+.chart-app-title {
+  background-color: rgb(206, 206, 206);
+}
+
+.chart-app-container span {
+  font-weight: 700;
+}

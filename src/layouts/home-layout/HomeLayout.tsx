@@ -8,11 +8,16 @@ type HomeLayoutProps = IChildren;
 
 function HomeLayout({ children }: HomeLayoutProps) {
   return (
-    <Stack mih={56} gap="md" mx={4} h="100vh">
+    <Stack gap="md" mx={4} h="100vh">
       <Header />
-      <Flex gap={rem(30)} px={rem(14)} h="100%">
+      <Flex
+        gap={rem(30)}
+        px={rem(14)}
+        style={{ flex: 1 }}
+        mr={{ sm: 0, md: rem(30), lg: rem(140) }}
+      >
         <Sidebar />
-        <Box style={{ flex: 1 }}>{children}</Box>
+        <Box>{children}</Box>
       </Flex>
     </Stack>
   );

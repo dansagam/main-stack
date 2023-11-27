@@ -8,7 +8,7 @@ import { ProfileDropdown } from './ProfileTab';
 function ProfileNav() {
   const { setColorScheme, colorScheme } = useMantineColorScheme();
   return (
-    <Group gap={28}>
+    <Group gap={5} wrap="nowrap">
       <ThemeIcon
         color="white"
         onClick={() => {
