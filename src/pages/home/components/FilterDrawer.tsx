@@ -35,13 +35,10 @@ function FilterDrawer(props: Props) {
     reset,
     handleSubmit,
     setValue,
-    watch,
   } = useForm({
     defaultValues: filterDefaultValue,
     resolver: filterResolver,
   });
-
-  console.log({ values: watch() });
 
   const onSubmit: SubmitHandler<typeof filterDefaultValue> = (values) => {
     // eslint-disable-next-line no-console
