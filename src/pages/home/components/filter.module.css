@@ -11,3 +11,12 @@
   border-radius: rem(20);
   margin: rem(5) rem(10);
 }
+
+.app-tab-change {
+  border-radius: rem(100);
+  padding: 2px 7px;
+}
+
+.app-tab-list {
+  gap: rem(8);
+}

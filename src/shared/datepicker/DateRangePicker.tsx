@@ -1,5 +1,5 @@
 import { Flex, Stack, TextInput } from '@mantine/core';
-import { DatePickerInput, DatesRangeValue } from '@mantine/dates';
+import { DatePickerInput, DatesRangeValue, PickerBaseProps } from '@mantine/dates';
 import React from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import classes from './datarange.module.css';
@@ -7,15 +7,25 @@ import { Prettify } from '@/@types/base';
 import Dayjs from 'dayjs';
 
 type DatePickerInputProps = Prettify<
-  React.ComponentPropsWithRef<typeof DatePickerInput> & {
+  Omit<React.ComponentPropsWithRef<typeof DatePickerInput>, 'value'> & {
     label?: string;
     error?: boolean;
     staticRange?: string[];
+    value?: PickerBaseProps<'range'>['value'];
   }
 >;
 const DateRangePicker = React.forwardRef<HTMLButtonElement, DatePickerInputProps>((props, ref) => {
-  const { label, staticRange, onChange, ...rest } = props;
-  const [value, setValue] = React.useState<DatesRangeValue>([null, null]);
+  const { label, staticRange, onChange, value: resultValue = [null, null], ...rest } = props;
+  const [value, setValue] = React.useState<PickerBaseProps<'range'>['value']>(
+    resultValue || [null, null]
+  );
+
+  const getResult = () => {
+    if (resultValue && resultValue[0]) {
+      return resultValue;
+    }
+    return value || [null, null];
+  };
   return (
     <Stack style={{ position: 'relative' }} px={0}>
       {staticRange && <div>render static range</div>}
@@ -42,13 +52,13 @@ const DateRangePicker = React.forwardRef<HTMLButtonElement, DatePickerInputProps
             id="ff"
             onChange={() => {}}
             label={label}
-            data-app-active={`${Boolean(value[0])}`}
+            data-app-active={`${Boolean(getResult()[0])}`}
             classNames={{
               wrapper: classes['text-input-wrapper'],
               input: classes['text-input-input'],
               root: classes['text-input-root'],
             }}
-            value={value[0] ? Dayjs(value[0]).format('DD MMM, YYYY') : ''}
+            value={getResult()[0] ? Dayjs(getResult()[0]).format('DD MMM, YYYY') : ''}
             rightSection={<IoIosArrowDown fontSize={10} />}
           />
           <TextInput
@@ -58,8 +68,8 @@ const DateRangePicker = React.forwardRef<HTMLButtonElement, DatePickerInputProps
               input: classes['text-input-input'],
               root: classes['text-input-root'],
             }}
-            data-app-active={`${Boolean(value[1])}`}
-            value={value[1] ? Dayjs(value[1]).format('DD MMM, YYYY') : ''}
+            data-app-active={`${Boolean(getResult()[1])}`}
+            value={getResult()[1] ? Dayjs(getResult()[1]).format('DD MMM, YYYY') : ''}
             rightSection={<IoIosArrowDown fontSize={10} />}
           />
         </Flex>
