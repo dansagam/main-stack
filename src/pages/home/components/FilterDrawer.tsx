@@ -77,7 +77,11 @@ function FilterDrawer(props: Props) {
           }}
           variant="outline"
           style={{ flexWrap: 'nowrap' }}
-          classNames={{ tab: classes['app-tab-change'], list: classes['app-tab-list'] }}
+          classNames={{
+            tab: classes['app-tab-change'],
+            list: classes['app-tab-list'],
+            root: classes['app-tab-root'],
+          }}
         />
         <ControlledDateRange control={control} name="dateRange" label="Date Range" />
         <ControlledMultiCompleteInput

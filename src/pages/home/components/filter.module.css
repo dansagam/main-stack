@@ -14,9 +14,23 @@
 
 .app-tab-change {
   border-radius: rem(100);
-  padding: 2px 7px;
+  padding: rem(8) rem(12);
+  border-color: var(--mantine-color-gray-2);
+  &[aria-selected='true'] {
+    background-color: var(--mantine-color-gray-2);
+  }
 }
 
 .app-tab-list {
   gap: rem(8);
+  border: none;
+  flex-wrap: nowrap;
+}
+
+.app-tab-root {
+  border: none;
+  border-color: #fff;
+  &[data-variant='outline'] {
+    border: 0px solid;
+  }
 }
